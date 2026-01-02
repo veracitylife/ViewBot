@@ -3,6 +3,7 @@
   function toggle(id) {
     expanded[id] = !expanded[id];
   }
+  
 </script>
 
 <div style="padding: 24px; color: #eaeaea; line-height: 1.6">
@@ -32,42 +33,40 @@
 
   <h2>Installation (Windows)</h2>
   <ol>
-    <li>Install Node.js LTS and Git.</li>
-    <li>Open a terminal in the project root.</li>
-    <li>Run: <code>npm install</code></li>
-    <li>Run: <code>npm run setup:win</code> (installs native modules and prerequisites).</li>
-    <li>Start: <code>npm start</code></li>
+    <li>Install Node.js LTS and Git</li>
+    <li>Open a terminal in the project root</li>
+    <li>Run: <code>install.bat</code></li>
+    <li>Start: <code>run.bat</code> or <code>npm start</code></li>
   </ol>
 
   <div style="margin-top: 20px; margin-bottom: 20px;"></div>
 
   <h2>Installation (Linux/Mac)</h2>
   <ol>
-    <li>Install Node.js LTS and Git.</li>
-    <li>Open a terminal in the project root.</li>
-    <li>Run: <code>npm install</code></li>
-    <li>Linux: <code>npm run setup:linux</code> | Mac: ensure build tools and Playwright deps installed.</li>
-    <li>Start: <code>npm start</code></li>
+    <li>Install Node.js LTS and Git</li>
+    <li>Open a terminal in the project root</li>
+    <li>Run: <code>install.sh</code></li>
+    <li>Start: <code>run.sh</code> or <code>npm start</code></li>
   </ol>
 
   <div style="margin-top: 20px; margin-bottom: 20px;"></div>
 
   <h2>Quick Start</h2>
   <ol>
-    <li>Open the app.</li>
-    <li>Go to Proxies and add/test proxies.</li>
-    <li>Go to Videos and add YouTube/Rumble URLs with desired watch time and options.</li>
-    <li>Go to Settings to adjust worker count and behavior.</li>
-    <li>Use the top “Start workers” button to begin, “Stop workers” to halt.</li>
+    <li>Open the app</li>
+    <li>Go to Proxies and add/test proxies</li>
+    <li>Go to Videos and add YouTube/Rumble URLs with desired watch time and options</li>
+    <li>Go to Settings to adjust worker count and behavior</li>
+    <li>Use the top Start workers button to begin, Stop workers to halt</li>
   </ol>
 
   <div style="margin-top: 20px; margin-bottom: 20px;"></div>
 
   <h2>Requirements</h2>
   <ul>
-    <li>Node.js 18.16.10 or above</li>
-    <li>Stable connection: ~2 megabits per minute per worker</li>
-    <li>Quality proxies to maximize view distribution</li>
+    <li>Node.js 18+</li>
+    <li>Stable connection</li>
+    <li>Quality proxies</li>
     <li>A capable computer to sustain concurrent workers</li>
   </ul>
 
@@ -75,10 +74,10 @@
 
   <h2>Core Concepts</h2>
   <ul>
-    <li>Workers: background processes that open headless/non-headless browsers to generate views.</li>
-    <li>Proxies: HTTP/HTTPS/SOCKS proxies used to distribute traffic and avoid detection.</li>
-    <li>Extensions: pluggable scripts to customize behavior.</li>
-    <li>Server API: Express endpoints powering the UI and actions.</li>
+    <li>Workers</li>
+    <li>Proxies</li>
+    <li>Extensions</li>
+    <li>Server API</li>
   </ul>
 
   <div style="margin-top: 20px; margin-bottom: 20px;"></div>
@@ -189,13 +188,17 @@
 
   <h2>Troubleshooting</h2>
   <ul>
-    <li>If native modules fail to build, rerun the setup scripts and ensure build tools are installed.</li>
-    <li>For Playwright/Chromium issues, ensure dependencies are present and proxies permit SSL traffic.</li>
-    <li>Clear caches and restart the app if UI becomes unresponsive.</li>
+    <li>If native modules fail to build, rerun setup scripts and ensure build tools are installed</li>
+    <li>For Playwright/Chromium issues, ensure dependencies are present and proxies permit SSL traffic</li>
+    <li>Clear caches and restart the app if UI becomes unresponsive</li>
   </ul>
 
   <div style="margin-top: 20px; margin-bottom: 20px;"></div>
 
+  
+  
+  <div style="margin-top: 20px; margin-bottom: 20px;"></div>
+  
   <h2>Links</h2>
   <ul>
     <li>Bloxxy’s Page: <a href="https://bloxxy.net/projects/1">https://bloxxy.net/projects/1</a></li>

@@ -343,7 +343,30 @@ function startWorker(job, worker, userDataDir, wtfp) {
             muteAudio: true,
             useAV1: settings.use_AV1,
 
-            workingFolder: path.join(__dirname, "../../browserEngine/")
+            workingFolder: path.join(__dirname, "../../browserEngine/"),
+            fingerprint: {
+                viewport: {
+                    width: settings.viewport_width,
+                    height: settings.viewport_height,
+                    deviceScaleFactor: settings.device_scale_factor,
+                    isMobile: settings.is_mobile_device
+                },
+                navigator: {
+                    platform: settings.platform,
+                    hardwareConcurrency: settings.hardwareConcurrency,
+                    languages: settings.languages,
+                    timezoneOffset: settings.timezone_offset
+                },
+                webgl: {
+                    vendor: settings.webgl_vendor,
+                    renderer: settings.webgl_renderer
+                }
+            },
+            mouseBehavior: {
+                mode: settings.mouse_behavior,
+                speed: settings.mouse_speed,
+                randomness: settings.mouse_randomness
+            }
         })
 
         let browser

@@ -36,6 +36,8 @@
 	setInterval(() => {
 		checkLoginStatus();
 	}, 1000 * 15)
+	
+	
 </script>
 
 <div id="form_container">
@@ -241,6 +243,20 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="settings_container container_red" style="padding: 1.5em;">
+		<h1 class="setting_discloser">Installation</h1>
+		<ul style="color: rgb(207, 211, 216); padding-left: 1.5em;">
+			<li>Run install.bat in the project root</li>
+			<li>Start the app with run.bat or npm start</li>
+			<li>Configure server Host, Port, API Key in Settings</li>
+			<li>Save settings and test with a small job</li>
+		</ul>
 	</div>
 </div>
 

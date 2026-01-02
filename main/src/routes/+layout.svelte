@@ -61,7 +61,7 @@
 	let temp_color = 'gray';
 	let connected_color = 'gray';*/
 
-	let showNavbar = false;
+	let showNavbar = true;
 
 	/*function changeHealth(health: any) {
 		if (!health || !health.load) return;
@@ -149,13 +149,7 @@
 			});
 	}*/
 
-	if (no_navbar !== 'true' && pLocation !== 'login') {
-		axios
-			.get('/api/health?login=true')
-			.then((data) => {
-				showNavbar = data.data.connected;
-			})
-	}
+	showNavbar = true;
 
 	let el = document.querySelector('#slot');
 	let scrollpos_str = localStorage.getItem(`scrollpos-${window.location.href.split('://')[1]}`);
@@ -371,6 +365,11 @@
 					<a class="sidebar_button" href="/settings" class:green_sidebar={pLocation == 'settings'}>
 						<img src="/svgs/settings.svg" alt="button svg" class="sidebar_image" />
 						<span class="sidebar_btn_title">Settings</span>
+					</a>
+
+					<a class="sidebar_button" href="/user-agents" class:green_sidebar={pLocation == 'user-agents'}>
+						<img src="/svgs/settings.svg" alt="button svg" class="sidebar_image" />
+						<span class="sidebar_btn_title">User Agents</span>
 					</a>
 
 					<a class="sidebar_button" href="/docs" class:green_sidebar={pLocation == 'docs'}>

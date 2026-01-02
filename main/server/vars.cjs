@@ -49,5 +49,20 @@ module.exports = {
         free_api_key: "",
     
         use_AV1: false,
+        user_agents_categories: [],
+        user_agents_selected: [],
+        viewport_width: 1366,
+        viewport_height: 768,
+        device_scale_factor: 1,
+        is_mobile_device: false,
+        platform: "Win32",
+        hardwareConcurrency: 8,
+        languages: ["en-US","en"],
+        timezone_offset: -300,
+        webgl_vendor: "",
+        webgl_renderer: "",
+        mouse_behavior: "humanized",
+        mouse_speed: 1.0,
+        mouse_randomness: 0.5,
     }
 }

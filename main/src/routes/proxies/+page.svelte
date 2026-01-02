@@ -16,6 +16,9 @@
 
 	let proxies: string[] = [];
 	let proxies_raw = '';
+	let single_proxy = '';
+	let import_file_input: HTMLInputElement;
+	let testing = false;
 
 	axios
 		.get('/api/proxies')
@@ -44,6 +47,43 @@
 
 	function publishProxies(newProxies: string[]) {
 		socket.emit('proxies', newProxies);
+	}
+
+	function addSingleProxy() {
+		const p = single_proxy.trim();
+		if (!p) return;
+		proxies = [...proxies, p];
+		proxies_raw = proxies.join('\n');
+		publishProxies(proxies);
+		single_proxy = '';
+	}
+
+	function importProxiesFromFile(files: FileList | null) {
+		if (!files || !files[0]) return;
+		const reader = new FileReader();
+		reader.onload = (e: any) => {
+			const text = String(e.target?.result || '');
+			const lines = text.split(/\r?\n/).map((l) => l.trim()).filter((l) => l.length > 0);
+			proxies = [...proxies, ...lines];
+			proxies_raw = proxies.join('\n');
+			publishProxies(proxies);
+		};
+		reader.readAsText(files[0]);
+	}
+
+	async function testProxies() {
+		testing = true;
+		try {
+			await axios.post('/api/workingStatus', { status: 1 });
+		} catch (e) {}
+		setTimeout(() => (testing = false), 5000);
+	}
+
+	function removeFailedProxies() {
+		const badSet = new Set(bad_proxies.map((b: any) => b.url || b));
+		proxies = proxies.filter((p) => !badSet.has(p));
+		proxies_raw = proxies.join('\n');
+		publishProxies(proxies);
 	}
 
 	socket.on('proxiesChanged', (newProxies) => {
@@ -129,12 +169,22 @@
 
 		<p class="proxy_title setting_discloser ">Proxy list</p>
 
-		<textarea class="setting_proxies" rows="7" value={proxies_raw} on:input={formatProxies} />
+	<textarea class="setting_proxies" rows="7" value={proxies_raw} on:input={formatProxies} />
+	<div class="same_line">
+		<input class="setting_text" type="text" bind:value={single_proxy} placeholder="Add single proxy" />
+		<button class="setting_button" on:click={addSingleProxy}>Add</button>
+		<input bind:this={import_file_input} type="file" accept=".txt" style="margin-left: 5%;" on:change={(e:any)=>importProxiesFromFile(e.target?.files)} />
+		<button class="setting_button" on:click={() => import_file_input?.click()}>Import file</button>
+	</div>
+	<div class="same_line" style="margin-top: 1%;">
+		<button class="setting_button" on:click={testProxies} disabled={testing}>{testing ? 'Testing…' : 'Test proxies'}</button>
+		<button class="setting_button" on:click={removeFailedProxies}>Remove failed</button>
+	</div>
 
-		<div class="proxy_selector_container container_{colorFromDisplay}">
-			<div id="proxy_type_selector">
-				<button
-					class="proxy_selector_button container_yellow"
+	<div class="proxy_selector_container container_{colorFromDisplay}">
+		<div id="proxy_type_selector">
+			<button
+				class="proxy_selector_button container_yellow"
 					on:click={() => (displayingProxyType = 'all')}>All</button
 				>
 				<button
