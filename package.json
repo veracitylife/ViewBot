@@ -26,7 +26,7 @@
     }
   },
   "name": "youtube-view-bot",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "description": "Youtube Rumble View Bot by SWT — fork of JijaProGamer/Bloxxy’s version. Password gateway removed and some API requirements bypassed for testing purposes only (not for production). Credit to the original developer Bloxxy.",
   "main": "src/index.js",
   "scripts": {
@@ -68,7 +68,7 @@
     "@electron-forge/publisher-github": "^7.4.0",
     "@electron/rebuild": "^3.6.0",
     "@sveltejs/kit": "^1.0.0",
-    "electron": "27.0.2",
+    "electron": "^27.0.2",
     "electron-prebuilt-compile": "8.2.0",
     "electron-rebuild": "^3.2.9",
     "eslint": "^8.28.0",
