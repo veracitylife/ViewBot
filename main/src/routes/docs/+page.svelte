@@ -10,6 +10,26 @@
   
   <div style="margin-top: 16px; margin-bottom: 24px;"></div>
 
+  <h2>Overview</h2>
+  <p>Works with both YouTube and Rumble. Emphasizes quality proxies, fast getting started, and streamlined installation.</p>
+
+  <div style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+  <h2>Unparalleled Functionality</h2>
+  <p>Advanced algorithms for view botting, customizable watch time, and engagement features enable versatile automation to improve metrics and accelerate growth.</p>
+
+  <div style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+  <h2>User-Friendly Interface</h2>
+  <p>A feature-rich interface reduces complexity. Control workers, proxies, videos, and settings intuitively to focus on content and strategy.</p>
+
+  <div style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+  <h2>Seamless YouTube and Rumble Integration</h2>
+  <p>Integrates with each platform’s flow, bypasses unnecessary prompts, and aligns with core features for smooth operation across YouTube and Rumble.</p>
+
+  <div style="margin-top: 20px; margin-bottom: 20px;"></div>
+
   <h2>Installation (Windows)</h2>
   <ol>
     <li>Install Node.js LTS and Git.</li>
@@ -40,6 +60,16 @@
     <li>Go to Settings to adjust worker count and behavior.</li>
     <li>Use the top “Start workers” button to begin, “Stop workers” to halt.</li>
   </ol>
+
+  <div style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li>Node.js 18.16.10 or above</li>
+    <li>Stable connection: ~2 megabits per minute per worker</li>
+    <li>Quality proxies to maximize view distribution</li>
+    <li>A capable computer to sustain concurrent workers</li>
+  </ul>
 
   <div style="margin-top: 20px; margin-bottom: 20px;"></div>
 
@@ -135,6 +165,17 @@
       Finish account import/export: export button, JSON/CSV format, validation feedback.
     </li>
   </ol>
+
+  <div style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+  <h2>Topics</h2>
+  <ul>
+    <li>Getting Started</li>
+    <li>Proxies and Quality Guidelines</li>
+    <li>Video Setup and Automation Options</li>
+    <li>Worker Scaling and Resource Tuning</li>
+    <li>Troubleshooting and Logs</li>
+  </ul>
 
   <h2>Internal Architecture Overview</h2>
   <ul>

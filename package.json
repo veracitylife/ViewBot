@@ -3,16 +3,12 @@
     "forge": {
       "packagerConfig": {},
       "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "youtube_rumble_view_bot"
-          }
-        },
+        
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "darwin"
+            "darwin",
+            "win32"
           ]
         },
         {
@@ -26,13 +22,15 @@
     }
   },
   "name": "youtube-view-bot",
-  "version": "3.3.2",
+  "version": "3.3.4",
   "description": "Youtube Rumble View Bot by SWT — fork of JijaProGamer/Bloxxy’s version. Password gateway removed and some API requirements bypassed for testing purposes only (not for production). Credit to the original developer Bloxxy.",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "lint": "eslint --ext .js,.ts,.svelte main",
+    "typecheck": "svelte-check",
     "setup:win": "powershell -ExecutionPolicy Bypass -File ./scripts/install-windows.ps1",
     "setup:linux": "bash ./scripts/install-linux.sh"
   },
@@ -62,14 +60,12 @@
     "@electron-forge/cli": "^6.4.2",
     "@electron-forge/maker-deb": "^6.4.2",
     "@electron-forge/maker-rpm": "^6.4.2",
-    "@electron-forge/maker-squirrel": "^6.4.2",
     "@electron-forge/maker-zip": "^6.4.2",
     "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
     "@electron-forge/publisher-github": "^7.4.0",
     "@electron/rebuild": "^3.6.0",
     "@sveltejs/kit": "^1.0.0",
     "electron": "^27.0.2",
-    "electron-prebuilt-compile": "8.2.0",
     "electron-rebuild": "^3.2.9",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
