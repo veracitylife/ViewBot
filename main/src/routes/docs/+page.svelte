@@ -1,0 +1,139 @@
+<script>
+  let expanded = {};
+  function toggle(id) {
+    expanded[id] = !expanded[id];
+  }
+</script>
+
+<div style="padding: 16px; color: #eaeaea">
+  <h1>ViewBot Documentation</h1>
+  <p>
+    This is the SWT fork of the YouTube & Rumble View Bot by Bloxxy. It removes the password gateway and bypasses some API requirements for testing. Use for testing only — not for production.
+  </p>
+
+  <h2>Installation (Windows)</h2>
+  <ol>
+    <li>Install Node.js LTS and Git.</li>
+    <li>Open a terminal in the project root.</li>
+    <li>Run: <code>npm install</code></li>
+    <li>Run: <code>npm run setup:win</code> (installs native modules and prerequisites).</li>
+    <li>Start: <code>npm start</code></li>
+  </ol>
+
+  <h2>Installation (Linux/Mac)</h2>
+  <ol>
+    <li>Install Node.js LTS and Git.</li>
+    <li>Open a terminal in the project root.</li>
+    <li>Run: <code>npm install</code></li>
+    <li>Linux: <code>npm run setup:linux</code> | Mac: ensure build tools and Playwright deps installed.</li>
+    <li>Start: <code>npm start</code></li>
+  </ol>
+
+  <h2>Quick Start</h2>
+  <ol>
+    <li>Open the app.</li>
+    <li>Go to Proxies and add/test proxies.</li>
+    <li>Go to Videos and add YouTube/Rumble URLs with desired watch time and options.</li>
+    <li>Go to Settings to adjust worker count and behavior.</li>
+    <li>Use the top “Start workers” button to begin, “Stop workers” to halt.</li>
+  </ol>
+
+  <h2>Core Concepts</h2>
+  <ul>
+    <li>Workers: background processes that open headless/non-headless browsers to generate views.</li>
+    <li>Proxies: HTTP/HTTPS/SOCKS proxies used to distribute traffic and avoid detection.</li>
+    <li>Extensions: pluggable scripts to customize behavior.</li>
+    <li>Server API: Express endpoints powering the UI and actions.</li>
+  </ul>
+
+  <h2>FAQs</h2>
+  <div>
+    <h3 style="cursor:pointer" on:click={() => toggle('faq1')}>How do I add proxies?</h3>
+    {#if expanded['faq1']}
+    <p>Open Proxies, paste your list (one per line). Click “Check proxies”. Good/bad proxies appear under tabs.</p>
+    {/if}
+
+    <h3 style="cursor:pointer" on:click={() => toggle('faq2')}>How do I add videos?</h3>
+    {#if expanded['faq2']}
+    <p>Open Videos, paste the video URL, set watch time, optionally add likes/comments, and save.</p>
+    {/if}
+
+    <h3 style="cursor:pointer" on:click={() => toggle('faq3')}>Do I need a key to use features?</h3>
+    {#if expanded['faq3']}
+    <p>In this SWT fork, free/premium checks are bypassed for testing, so features are accessible without keys.</p>
+    {/if}
+
+    <h3 style="cursor:pointer" on:click={() => toggle('faq4')}>Why are views not increasing?</h3>
+    {#if expanded['faq4']}
+    <p>Check proxies quality, worker count, video options, and bandwidth. Avoid reusing IPs rapidly.</p>
+    {/if}
+
+    <h3 style="cursor:pointer" on:click={() => toggle('faq5')}>How do I import/export accounts?</h3>
+    {#if expanded['faq5']}
+    <p>Use the import/export buttons on the Videos page for account lists tied to specific videos.</p>
+    {/if}
+
+    <h3 style="cursor:pointer" on:click={() => toggle('faq6')}>Can it watch livestreams and shorts?</h3>
+    {#if expanded['faq6']}
+    <p>Yes, with dedicated modes. Configure per video. Rumble has a different UI flow.</p>
+    {/if}
+
+    <h3 style="cursor:pointer" on:click={() => toggle('faq7')}>How can I run headless?</h3>
+    {#if expanded['faq7']}
+    <p>Use the headless run scripts or toggle the setting if available; headless reduces resource usage.</p>
+    {/if}
+  </div>
+
+  <h2>Advanced Features Roadmap</h2>
+  <ol>
+    <li>
+      Cache video metadata in the database. On video info requests, return cached data if present. Provide a “Refetch” button and auto-detect updates (e.g., livestreams ending).
+    </li>
+    <li>
+      Keep proxy test results in memory and serve them on navigation back to the Proxies page via a GET endpoint.
+    </li>
+    <li>
+      Complete Dashboard video list with status, progress, errors, and per-video metrics.
+    </li>
+    <li>
+      Complete Dashboard stats graphs (views over time, proxy health, worker utilization).
+    </li>
+    <li>
+      Key-based navbar behavior: if no key, hide navbar; on app start, check DB for key and redirect to key page if invalid.
+    </li>
+    <li>
+      Finish the video watching feature with robust anti-fingerprinting and per-platform navigation flows.
+    </li>
+    <li>
+      Full support for Shorts and Livestreams, with Rumble-specific UI handling and controls.
+    </li>
+    <li>
+      Switch app name and icon via Electron Forge maker configs and static assets.
+    </li>
+    <li>
+      Finish account import/export: export button, JSON/CSV format, validation feedback.
+    </li>
+  </ol>
+
+  <h2>Internal Architecture Overview</h2>
+  <ul>
+    <li>Electron Forge powers the desktop app; the UI is SvelteKit.</li>
+    <li>Server runs via Express with REST and Socket.IO.</li>
+    <li>Workers coordinate via server-side scripts and browser automation libraries.</li>
+    <li>Configuration stored in DB and JSON files; static assets in main/static.</li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li>If native modules fail to build, rerun the setup scripts and ensure build tools are installed.</li>
+    <li>For Playwright/Chromium issues, ensure dependencies are present and proxies permit SSL traffic.</li>
+    <li>Clear caches and restart the app if UI becomes unresponsive.</li>
+  </ul>
+
+  <h2>Links</h2>
+  <ul>
+    <li>GitHub Fork: <a href="https://github.com/veracitylife/ViewBot">https://github.com/veracitylife/ViewBot</a></li>
+    <li>SWT Discord: <a href="https://discord.gg/GCa9zS7j">https://discord.gg/GCa9zS7j</a></li>
+    <li>Bloxxy’s Page: <a href="https://bloxxy.net/projects/1">https://bloxxy.net/projects/1</a></li>
+  </ul>
+</div>
